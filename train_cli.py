@@ -116,6 +116,7 @@ if __name__ == "__main__":
         _, dataset_val = DatasetDispatcher(dataset_recipe).get_support_and_tuning_dataset(dataset_name, 
                                                                                           split="validation", 
                                                                                           dataset_support=dataset_support,
+                                                                                          num_examples=config.num_examples,
                                                                                           postprocess_function=model_template_recipe.postprocess_function, 
                                                                                           eos_token=tokenizer.eos_token,
                                                                                           include_labels_inside_text=True,
