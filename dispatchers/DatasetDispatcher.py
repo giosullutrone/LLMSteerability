@@ -69,7 +69,7 @@ class DatasetDispatcher:
             dataset = dataset.select(range(num_examples, dataset.num_rows))
 
         # Apply the preprocess
-        if not dynamic_examples:
+        if not dynamic_examples or num_examples == 0:
             # If the dataset support if fixed, we can just provide it to the preprocess function
             dataset = dataset.map(self.dataset_recipe.preprocess_function, remove_columns=dataset.column_names, fn_kwargs={"examples": dataset_support}, num_proc=num_proc, desc="Preprocessing prompts")
         else:
